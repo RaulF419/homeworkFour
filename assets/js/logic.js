@@ -67,24 +67,31 @@ function getQuestion() {
   
   // display new time on page
   timerEl.textContent = time ;
-  
-  feedbackEl.setAttribute("class", "feedback");
-  setTimeout(function() {
-  feedbackEl.setAttribute("class", "feedback hide");
-  }, 1000);
- 
-  // flash right/wrong feedback on page for half a second
-  feedbackEl.textContent = "Wrong!" ;
-  
-  
-  // play "right" sound effect
-  playAudio();
-  sfxRight.play
-  };
-  
-  
-  // move to next question
-     currentQuestionIndex++;
+   // flash wrong feedback on page for half a second
+   feedbackEl.setAttribute("class", "feedback");
+   setTimeout(function() {
+   feedbackEl.setAttribute("class", "feedback hide");
+   }, 1000);
+   feedbackEl.textContent = "Wrong!" ;
+   // play "wrong" sound effect
+   
+   sfxWrong.play()
+   }
+   else{
+     // flash Correct! feedback on page for half a second
+   feedbackEl.setAttribute("class", "feedback");
+   setTimeout(function() {
+   feedbackEl.setAttribute("class", "feedback hide");
+   }, 1000);
+   feedbackEl.textContent = "Correct!" ;
+   // play "wrong" sound effect
+   
+   sfxRight.play();
+     
+   // move to next question
+   currentQuestionIndex++;
+   }
+   
   // check if we've run out of questions
   if (currentQuestionIndex === questions.length) {
   // quizEnd
